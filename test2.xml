@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="#stylesheet"?>
+<!DOCTYPE doc [
+<!ATTLIST xsl:stylesheet
+id ID #REQUIRED>
+]>
+<doc>
+
+ <xsl:stylesheet id="stylesheet"
+  version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+  <xsl:template match="xsl:stylesheet" />
+  <xsl:template match="/doc">
+   <html>
+    <head>
+     <style>
+      h2{
+      font-family: Courier, Courier New, monospace;
+      font-size: 32px;
+      text-decoration: underline;
+      }
+      body{
+      font-family: Courier New, monospace;
+      }
+      table{
+      font-size: 14px;
+      }
+     
+     </style>
+    </head>
+    <body>
+     <h2>Book List For Sale</h2>
+ 
+     <table border="1">
+      <tr>
+          <th>#</th>
+       <th>Book</th>
+       <th>Price</th>
+       <th>Author</th>
+          
+
+      </tr>
+      <xsl:for-each select="list/movie">
+      
+         <tr style="background-color:#fff;">
+          <td> <xsl:number /></td>
+          <td class="title"><xsl:value-of select="title"/></td>
+          <td class="Price"><xsl:value-of select="Price"/>$</td>
+          <td class="Author"><xsl:value-of select="Author" /> </td>
+      
+        
+         </tr>
+        
+       
+      </xsl:for-each>
+     </table>
+    </body>
+   </html>
+  </xsl:template>
+ </xsl:stylesheet>
+
+ <!--Start XML-->
+ <list>
+  <movie>
+   <title>First book</title>
+   <Price>1.38</Price>
+      <Author>king james</Author>
+  </movie>
+  <movie>
+   <title>First book(2)</title>
+   <Price>1.38</Price>
+   
+   
+   <Author>ja mes</Author>
+  </movie>
+  <movie>
+   <title>a tale of 2 tales</title>
+   <Price>2.00</Price>
+  
+   
+   <Author>james not james</Author>
+  </movie>
+  <movie>
+   <title>Orange peanut</title>
+   <Price>1298</Price>
+   
+   
+   <Author>james james</Author>
+  </movie>
+  <!--Rest of XML-->
+ </list>
+</doc>
